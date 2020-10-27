@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juicy me - Junthund's City-like Map Editor</title>
+    <meta name="application-name" content="Juicy me">
+    <meta name="author" content="Junthund (Pau Rojas)">
+    <meta name="description" content="With this tool you can draw and edit orthogonal maps (best suited for cities and stuff).">
+    
+    <link rel="icon" type="image/png" href="icon.png" sizes="16x16"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-white" onload="startMap()">
+
+<!-- Header -->
+<div class="jumbotron bg-dark text-center border">
+    <h1>Juicy me - Junthund's City-like Map Editor</h1>
+    <p>Version 0.1</p>
+</div>
+
+<!-- Page content -->
+<div class="container border">
+    <div class="row border">
+        <!-- Component control -->
+        <div class="col-sm-3 border">
+            <div class="form-group border">
+                <label for="compColor" class="mr-sm-3">Color:</label>
+                <input type="color"  id="compColor"  name="color" class="form-control-sm mb-2 mr-sm-3">
+            </div>
+            <div class="form-group border">
+                <label for="compWidth" class="mr-sm-3">Width:</label>
+                <input type="number" id="compWidth"  name="width" value=1 min=1 class="form-control-sm mb-2 mr-sm-3">
+            </div>
+            <div class="form-group border">
+                <label for="compHeight" class="mr-sm-3" >Height:</label>
+                <input type="number" id="compHeight" name="height" value=1 min=1 class="form-control-sm mb-2 mr-sm-3">
+            </div>
+            <div class="form-group border">
+                <label for="importJSON" class="mr-sm-3" >Import map</label>
+                <input type="file" accept="application/json" id="importJSON" name="importJSON" class="form-control-sm mb-2 mr-sm-3 form-control-file" onchange="importJson(this.files);">
+            </div>
+            <div class="button-group border">
+                <a id="exportJSON" onclick="exportJson(this);" class="btn btn-info">Export map</a>
+                <button class="btn btn-danger" onclick="clearCompList()">Clear map</button>
+            </div>
+        </div>
+        <!-- Map editor -->
+        <div class="col-sm-9 border">
+            <div id="input" class="container text-center border"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="jumbotron bg-dark text-center border" style="margin-bottom:0">
+    <p>Footer</p>
+</div>
+
+<!-- Canvas control (Juicy JS) -->
+<script src="juicy.js"></script>
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
